@@ -7,11 +7,9 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "craco-config-flex-plugin": "latest",
-    "flex-plugin-scripts": "latest",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "latest"
+    "flex-plugin-scripts": "4.1.0"
   },
   "devDependencies": {
     "@twilio/flex-ui": "^1",
