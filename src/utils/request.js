@@ -13,7 +13,6 @@ const enqueueCall = async (callSid, taskSid) => {
     data: {
       Token: manager.store.getState().flex.session.ssoTokenPayload.token,
       callSid,
-      taskSid,
     },
   });
 
