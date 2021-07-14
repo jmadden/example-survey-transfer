@@ -22,18 +22,17 @@ export default class SurveyTransferPlugin extends FlexPlugin {
       'beforeHangupCall',
       async (payload, abortFunction) => {
         // Enqueue customer call SID.
-        console.log('beforeHangupCall PAYLOAD: ', payload.task);
         const participantArray = payload.task.conference.participants.find(
           (results) => results.participantType === 'customer'
         );
         const customerCallSid = participantArray.callSid;
-        console.log('CALL SID:', customerCallSid);
+        console.log('CALL SID TO ENQUEUE:', customerCallSid);
 
         // Enqueue customer call. This will end the conference call.
         const enqueueCustomer = async () => {
           try {
             const response = await enqueueCall(customerCallSid);
-            console.log('ENQUEUE RESPONSE: ', response);
+            console.log('ENQUEUE FUNCTION RESPONSE: ', response);
             return response;
           } catch (e) {
             console.log('ERROR ENQUEING CUSTOMER CALL');
@@ -72,7 +71,7 @@ export default class SurveyTransferPlugin extends FlexPlugin {
           const {
             data: { callSid },
           } = await enqueueCustomer();
-          console.log('CALL SID RESPONSE: ', callSid);
+          console.log('CALL SID FROM ENQUEUE RESPONSE: ', callSid);
 
           // If enquing the call was successful get survey phone number
           if (callSid) {
