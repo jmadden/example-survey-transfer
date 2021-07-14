@@ -1,4 +1,4 @@
-# Example Survey Dial
+# Example Code - Transfer Customer to Survey on End Call
 
 This plugin will redirect a customer to a phone number upon the agent hanging up the call. The phone number being dialed will point to a survey for the customer.
 
