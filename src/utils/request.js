@@ -4,10 +4,12 @@ import axios from 'axios';
 const manager = Manager.getInstance();
 const { REACT_APP_SERVICE_BASE_URL } = process.env;
 
+console.debug('REQUEST BASE URL: ', process.env.REACT_APP_SERVICE_BASE_URL);
+
 const enqueueCall = async (callSid, taskSid) => {
   const resp = await axios({
     method: 'post',
-    url: 'https://survey-functions-3074-dev.twil.io/enqueue-customer-call',
+    url: `${REACT_APP_SERVICE_BASE_URL}/enqueue-customer-call`,
     data: {
       Token: manager.store.getState().flex.session.ssoTokenPayload.token,
       callSid,
@@ -21,7 +23,7 @@ const enqueueCall = async (callSid, taskSid) => {
 const getNumber = async () => {
   const resp = await axios({
     method: 'post',
-    url: 'https://survey-functions-3074-dev.twil.io/retrieve-survey-phone',
+    url: `${REACT_APP_SERVICE_BASE_URL}/retrieve-survey-phone`,
     data: {
       Token: manager.store.getState().flex.session.ssoTokenPayload.token,
     },
@@ -33,7 +35,7 @@ const getNumber = async () => {
 const dialNumber = async (callSid, phone) => {
   const resp = await axios({
     method: 'post',
-    url: 'https://survey-functions-3074-dev.twil.io/dial-survey',
+    url: `${REACT_APP_SERVICE_BASE_URL}/dial-survey`,
     data: {
       Token: manager.store.getState().flex.session.ssoTokenPayload.token,
       callSid,

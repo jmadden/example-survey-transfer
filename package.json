@@ -7,12 +7,14 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
-    "flex-plugin-scripts": "4.1.0",
-    "react": "16.5.2",
-    "react-dom": "16.5.2"
+    "craco-config-flex-plugin": "latest",
+    "flex-plugin-scripts": "latest",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-scripts": "latest"
   },
   "devDependencies": {
     "@twilio/flex-ui": "^1",
-    "react-test-renderer": "16.5.2"
+    "react-test-renderer": "^16.13.1"
   }
 }
