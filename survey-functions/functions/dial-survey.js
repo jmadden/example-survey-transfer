@@ -1,5 +1,5 @@
 const TokenValidator = require('twilio-flex-token-validator').functionValidator;
-
+require('dotenv').config();
 let path = Runtime.getFunctions()['survey-utils'].path;
 let assets = require(path);
 
@@ -15,7 +15,7 @@ exports.handler = TokenValidator(async (context, event, callback) => {
   const response =
     enqueuedCallDetails.status === 'in-progress'
       ? await client.calls(event.callSid).update({
-          twiml: `<Response><Leave /><Dial>+${event.phone}</Dial></Response>`,
+          twiml: `<Response><Leave /><Dial><Number statusCallback='${process.env.REACT_APP_SERVICE_BASE_URL}/survey-call-status' statusCallbackEvent='initiated ringing answered completed'>+${event.phone}</Number></Dial></Response>`,
         })
       : null;
 

@@ -4,7 +4,7 @@ import axios from 'axios';
 const manager = Manager.getInstance();
 const { REACT_APP_SERVICE_BASE_URL } = process.env;
 
-console.debug('REQUEST BASE URL: ', process.env.REACT_APP_SERVICE_BASE_URL);
+console.debug('REQUEST BASE URL: ', REACT_APP_SERVICE_BASE_URL);
 
 const enqueueCall = async (callSid, taskSid) => {
   const resp = await axios({

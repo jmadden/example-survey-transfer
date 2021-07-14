@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "axios": "^0.21.1",
+    "dotenv": "^6.2.0",
     "twilio": "^3.56",
     "twilio-flex-token-validator": "^1.5.6"
   },
